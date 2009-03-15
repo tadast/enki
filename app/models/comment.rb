@@ -12,7 +12,7 @@ class Comment < ActiveRecord::Base
   after_save            :denormalize
   after_destroy         :denormalize
 
-  validates_presence_of :author, :body, :post
+  validates_presence_of :author, :body, :post, :author_email
 
   # validate :open_id_thing
   def validate
@@ -65,7 +65,7 @@ class Comment < ActiveRecord::Base
 
   class << self
     def protected_attribute?(attribute)
-      [:author, :body].include?(attribute.to_sym)
+      [:author, :author_email, :body].include?(attribute.to_sym)
     end
     
     def new_with_filter(params)

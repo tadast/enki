@@ -15,6 +15,7 @@ module ApplicationHelper
     {
       'body'   => 'Please comment',
       'author' => 'Please provide your name or OpenID identity URL',
+      'author_email'  => 'Email is required',
       'base'   => error.last
     }[error.first]
   end

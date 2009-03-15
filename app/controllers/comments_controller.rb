@@ -28,6 +28,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new((session[:pending_comment] || params[:comment] || {}).reject {|key, value| !Comment.protected_attribute?(key) })
     @comment.post = @post
 
+    logger.info @comment.inspect
+    logger.info params.inspect
+    logger.info ((session[:pending_comment] || params[:comment] || {}).reject {|key, value| !Comment.protected_attribute?(key) }).inspect
+
     session[:pending_comment] = nil
 
     if @comment.requires_openid_authentication?
@@ -56,7 +60,7 @@ class CommentsController < ApplicationController
         session[:pending_comment] = nil
       end
     else
-      @comment.blank_openid_fields
+      #@comment.blank_openid_fields
     end
 
     if @comment.save
