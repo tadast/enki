@@ -266,6 +266,11 @@ textarea
   background-color: #fafafa;
 }
 
+ol.commentlist li cite img {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
 
 div.comments div.body
 {

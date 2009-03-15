@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+  is_gravtastic :with => :author_email, :size => 20
+
   DEFAULT_LIMIT = 15
 
   attr_accessor         :openid_error
