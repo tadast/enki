@@ -1,3 +1,5 @@
+require 'gravtastic'
+
 class Comment < ActiveRecord::Base
   is_gravtastic :with => :author_email, :size => 20
 
