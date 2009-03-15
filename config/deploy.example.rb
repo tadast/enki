@@ -8,7 +8,7 @@ set :user, 'USER_TO_DEPLOY_AS'
 
 server "SERVER_TO_DEPLOY_TO", :app, :web, :db, :primary => true
 
-shared_configs = %w'database.yml mongrel_cluster.yml'
+shared_configs = %w'database.yml mongrel_cluster.yml enki.yml'
 
 namespace :deploy do
   task :symlink_shared_configs do
