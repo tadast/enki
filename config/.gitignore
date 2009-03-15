@@ -1,2 +1,4 @@
 database.yml
 defensio.yml
+mongrel_cluster.yml
+deploy.rb
