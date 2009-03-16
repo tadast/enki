@@ -8,6 +8,7 @@ h2. Key differences from original
 
 # support of gravatars using gravitastic (credits to jasoncheow)
 # allow posting comments without openid auth, leaving contact email (TODO: captcha?)
+# added a subtitle line for short blog description just under the main blog title
 # TODO: transliteration of RUSSIAN post titles to ASCII slugs
 # TODO: transliteration of JAPANESE post titles to ASCII slugs :)
 

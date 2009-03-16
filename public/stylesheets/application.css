@@ -41,6 +41,28 @@ body
 h1#page_heading
 {
   font-size: 24pt;
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding-bottom: 0;
+}
+
+h1#page_heading a
+{
+  color: black;
+}
+
+h1#page_heading a:hover
+{
+  text-decoration: none;
+}
+
+h2#page_subtitle
+{
+  margin-top: -5px;
+  height: 40px;
+  font-size: 10pt;
+  color: black;
+  font-weight: normal;
 }
 
 h2
