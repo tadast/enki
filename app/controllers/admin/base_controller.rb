@@ -2,6 +2,7 @@ class Admin::BaseController < ApplicationController
   layout 'admin'
 
   before_filter :require_login
+  skip_after_filter :add_google_analytics_code
 
   protected
 

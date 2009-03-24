@@ -47,6 +47,8 @@ Rails::Initializer.run do |config|
   # (create the session table with 'rake db:sessions:create')
   config.action_controller.session_store = :active_record_store
 
+  config.gem 'rubaidh-google_analytics', :lib => 'rubaidh/google_analytics', :source => 'http://gems.github.com'
+
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,
   # like if you have constraints or database-specific column types
@@ -74,3 +76,6 @@ require 'openid/store/filesystem'
 require 'openid/extensions/sreg'
 
 require 'chronic'
+
+# place your google analytics id here
+#Rubaidh::GoogleAnalytics.tracker_id = 'UA-0000000-1' if defined?Rubaidh

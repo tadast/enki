@@ -1,6 +1,8 @@
 class Admin::SessionsController < ApplicationController
   layout 'login'
 
+  skip_after_filter :add_google_analytics_code
+
   def show
     if using_open_id?
       create
