@@ -1,6 +1,7 @@
 module CoreExtensions::String
   def slugorize
     result = self.downcase
+    result.translify! if result.respond_to?(:translify!)
     result.gsub!(/&(\d)+;/, '')  # Ditch Entities
     result.gsub!('&', 'and')     # Replace & with 'and'
     result.gsub!(/['"]/, '')    # replace quotes by nothing
