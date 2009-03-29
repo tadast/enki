@@ -47,8 +47,13 @@ Rails::Initializer.run do |config|
   # (create the session table with 'rake db:sessions:create')
   config.action_controller.session_store = :active_record_store
 
-  YAML::load_file('config/gems.yml').each do |gem_name,options|
-    config.gem(gem_name, options ? options.symbolize_keys : {})
+  YAML::load_file('config/gems.yml').each do |gem_name,gem_opts|
+    gem_options = (gem_opts || {}).inject({}) do |options, (key, value)|
+      options[(key.to_sym rescue key) || key] = value
+      options
+    end
+
+    config.gem(gem_name, gem_options)
   end
 
   # Use SQL instead of Active Record's schema dumper when creating the test database.
