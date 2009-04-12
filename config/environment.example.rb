@@ -84,5 +84,6 @@ require 'openid/extensions/sreg'
 
 require 'chronic'
 
-# place your google analytics id here
-#Rubaidh::GoogleAnalytics.tracker_id = 'UA-0000000-1' if defined?Rubaidh
+if defined?Rubaidh && defined?Rubaidh::GoogleAnalytics
+  Rubaidh::GoogleAnalytics.tracker_id = 'UA-CHANGE-ME' # place your google analytics id here
+end
