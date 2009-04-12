@@ -21,5 +21,14 @@ class ApplicationController < ActionController::Base
   def config
     @@config = Enki::Config.default
   end
+
+  def rescue_action_in_public(exception)
+    if exception.is_a?ActiveRecord::RecordNotFound
+      render :partial => 'posts/error_404', :layout => 'application', :status => 404
+    else
+      super
+    end
+  end
+
   helper_method :config
 end
