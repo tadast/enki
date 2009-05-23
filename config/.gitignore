@@ -4,3 +4,4 @@ mongrel_cluster.yml
 deploy.rb
 enki.yml
 environments/production.rb
+initializers/google_analytics.rb
