@@ -22,6 +22,10 @@ Rails::Initializer.run do |config|
   config.gem "lesstile", :version => "~> 0.3"
   config.gem "mislav-will_paginate", :lib => "will_paginate", :version => "~> 2.3"
 
+  config.gem "rutils",     :lib => false
+  config.gem "gravtastic", :lib => false
+  config.gem "rubaidh-google_analytics", :lib => false, :source => "http://gems.github.com"
+
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -29,22 +33,15 @@ Rails::Initializer.run do |config|
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
-      options
-    end
-
-    config.gem(gem_name, gem_options)
-  end
-
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.
-  config.time_zone = 'UTC'
-  Dir.glob(File.join(RAILS_ROOT,'vendor','*','lib')).each do |dir|
+  #config.time_zone = 'UTC'
+
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-
-require 'lesstile'
+end
