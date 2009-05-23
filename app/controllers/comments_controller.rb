@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
 
     logger.info @comment.inspect
     logger.info params.inspect
-    logger.info ((session[:pending_comment] || params[:comment] || {}).reject {|key, value| !Comment.protected_attribute?(key) }).inspect
+    logger.info(((session[:pending_comment] || params[:comment] || {}).reject {|key, value| !Comment.protected_attribute?(key) }).inspect)
 
     session[:pending_comment] = nil
 
