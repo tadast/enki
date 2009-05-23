@@ -3,3 +3,4 @@ defensio.yml
 mongrel_cluster.yml
 deploy.rb
 enki.yml
+environments/production.rb

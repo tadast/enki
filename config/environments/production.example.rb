@@ -16,3 +16,10 @@ config.action_controller.perform_caching             = true
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
+
+#config.action_mailer.smtp_settings = {
+#   :address => "mail.example.org",
+#   :port => 25,
+#   :domain => "example.org"
+#}
+
