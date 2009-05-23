@@ -1,2 +1,6 @@
+log/**/*
+log
+tmp/**/*
 tmp
-tags
+config/database.yml
+db/schema.rb
