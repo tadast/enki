@@ -37,6 +37,7 @@ class CommentsController < ApplicationController
 
     unless @comment.requires_openid_authentication?
       @comment.blank_openid_fields
+      @comment.author_email = (session[:pending_comment] || params[:comment])[:author_email]
     else
       session[:pending_comment] = params[:comment]
       return if authenticate_with_open_id(@comment.author, :optional => [:nickname, :fullname, :email]) do |result, identity_url, registration|

@@ -5,7 +5,8 @@ describe Comment do
     {
       :author => 'Don Alias',
       :body   => 'This is a comment',
-      :post   => Post.new
+      :post   => Post.new,
+      :author_email => 'aaa@aaa.com'
     }.merge(extra)
   end
 

@@ -38,7 +38,9 @@ module UrlHelper
     if comment.author_url.blank?
       h(comment.author)
     else
-      link_to(h(comment.author), h(comment.author_url), :class => 'openid')
+      author_url = comment.author_url
+      author_url = "http://#{author_url}" unless author_url['://']
+      link_to(h(comment.author), h(author_url), :class => 'openid')
     end
   end
 

@@ -23,7 +23,7 @@ Rails::Initializer.run do |config|
   config.gem "mislav-will_paginate", :lib => "will_paginate", :version => "~> 2.3"
 
   config.gem "rutils"
-  config.gem "gravtastic", :lib => false
+  config.gem "chrislloyd-gravtastic", :lib => false, :source => "http://gems.github.com"
   config.gem "rubaidh-google_analytics", :lib => false, :source => "http://gems.github.com"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
