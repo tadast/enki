@@ -15,3 +15,6 @@ author:
 open_id_delegation:
   server:   http://www.myopenid.com/server
   delegate: http://username.myopenid.com
+
+# Uncomment this if you use feedburner or any other feed proxy
+#feed_proxy_url: http://feeds.feedburner.com/my_blog_name
