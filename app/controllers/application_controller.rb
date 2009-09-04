@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
 
   after_filter :set_content_type
+  before_filter :log_referer
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -31,4 +32,9 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :config
+
+  def log_referer
+    logger.info "Referer: #{request.referer}" if request.referer
+    true
+  end
 end
