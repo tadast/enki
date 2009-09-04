@@ -44,8 +44,16 @@
           <input type="hidden" name="sitesearch" value="<%=h config[:url] %>" />
         </div>
       </form>
-    </div>    
-    
+    </div>
+
+    <!-- Yandex.Metrika -->
+    <script src="//mc.yandex.ru/resource/watch.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    try { var yaCounter221066 = new Ya.Metrika(221066); } catch(e){}
+    </script>
+    <noscript><div style="position: absolute;"><img src="//mc.yandex.ru/watch/221066" alt="" /></div></noscript>
+    <!-- Yandex.Metrika -->
+
     <div id="footer"><%=h config[:title] %> &#169; <%=h config[:author, :name] %>. Valid <a href="http://validator.w3.org/check?uri=referer">XHTML</a> and <%= link_to "ATOM", "http://feedvalidator.org/check.cgi?url=#{h(config[:url])}/posts.atom" %>. Powered by <a href="http://www.enkiblog.com" title="A Ruby on Rails blogging app for the fashionable developer">Enki</a>.</div>
   </div>
 </body>
