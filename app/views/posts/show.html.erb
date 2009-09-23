@@ -1,6 +1,7 @@
 <% content_for(:head) do -%>
   <%= javascript_include_tag 'common' %>
   <%= javascript_include_tag 'live-comment-preview' %>
+  <style><%= @styles.join("\n") -%></style>
 <% end -%>
 <% content_for(:page_title) do -%>
 <%=h post_title(@post) -%>
@@ -27,9 +28,19 @@
   <% end -%>  
 <% form_for([@post, @comment]) do |form| -%>
   <div>
-    <p><%= form.text_field 'author' %><label for="comment_author"><small>Name or <a href="http://openidexplained.com/">OpenID</a> (required)</small></label></p>
-    <p><%= form.text_field 'author_email' %><label for="comment_author_email"><small>Your email (required if no openid)</small></label></p>
-    <p><%= form.text_area 'body' %><br /><small>(<a href="http://lesstile.rubyforge.org">lesstile enabled</a> - surround code blocks with ---)</small></p>
+    <p class="<%= @ns.random -%>"><%= form.text_field 'author' %><label for="comment_author"><small>Name or <a href="http://openidexplained.com/">OpenID</a> (required)</small></label></p>
+    <p class="<%= @ns.random -%>"><%= form.text_field 'author_email' %><label for="comment_author_email"><small>Your email (required if no openid)</small></label></p>
+    <p class="<%= @hs.random -%>"><%= text_field_tag 'comment[author_website]', '', :id => 'comment_author_website' %><label for="comment_author_website"><small>Website</small></label></p>
+    <p class="<%= @hs.random -%>"><%= text_field_tag 'comment[website]', '', :id => 'comment_website' %><label for="comment_website"><small>Website</small></label></p>
+    <p class="<%= @hs.random -%>"><%= text_field_tag 'website' %><label for="website"><small>Website</small></label></p>
+    <p class="<%= @hs.random -%>"><%= text_field_tag 'url' %><label for="url"><small>Website</small></label></p>
+    <p class="<%= @ns.random -%>"><%= form.text_area 'body' %><br /><small>(<a href="http://lesstile.rubyforge.org">lesstile enabled</a> - surround code blocks with ---)</small></p>
     <p><%= submit_tag "Add Comment" %></p>
   </div>
 <% end -%>
+
+<% if session[:honeypot_data] %>
+  <p class="<%= @hs.random -%>">
+    <%= session[:honeypot_data].inspect %>
+  </p>
+<% end %>

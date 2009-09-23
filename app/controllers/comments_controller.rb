@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     :failed   => "Sorry, the OpenID verification failed" }
 
   before_filter :find_post, :except => [:new]
+  before_filter :check_honeypots, :only => %w'create index'
 
   def index
     if request.post? || using_open_id?
@@ -67,5 +68,37 @@ class CommentsController < ApplicationController
 
   def find_post
     @post = Post.find_by_permalink(*[:year, :month, :day, :slug].collect {|x| params[x] })
+  end
+
+  def check_honeypots
+    logger.info "check honeypots: #{params.inspect}"
+  
+    fields = [
+      [:comment, :author_website],
+      [:comment, :website],
+      :website,
+      :url
+    ]
+    r = true
+    fields.each do |f|
+      if f.is_a?(Array)
+        unless params[f[0]].try(:[], f[1]).blank?
+          r = false
+          break
+        end
+      else
+        unless params[f].blank?
+          r = false
+          break
+        end
+      end
+    end
+
+    unless r
+      session[:honeypot_data] = params
+      redirect_to post_path(@post)
+    end
+
+    r
   end
 end
