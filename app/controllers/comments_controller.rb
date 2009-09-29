@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
 
   before_filter :find_post, :except => [:new]
   before_filter :check_honeypots, :only => %w'create index'
+  before_filter :cleanup_honey
 
   def index
     if request.post? || using_open_id?
@@ -60,6 +61,7 @@ class CommentsController < ApplicationController
     if session[:pending_comment].nil? && @comment.save
       redirect_to post_path(@post)
     else
+      prepare_hidden_styles
       render :template => 'posts/show'
     end
   end
@@ -100,5 +102,13 @@ class CommentsController < ApplicationController
     end
 
     r
+  end
+
+  def cleanup_honey
+    if params[:comment]
+      params[:comment].try(:delete,:author_website)
+      params[:comment].try(:delete,:website)
+    end
+    true
   end
 end
