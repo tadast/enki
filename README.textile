@@ -7,11 +7,13 @@ A Ruby on Rails blogging app for the fashionable developer.
 h2. Key differences from original
 
 # support of gravatars using gravitastic (credits to jasoncheow)
-# allow posting comments without openid auth, leaving contact email (TODO: captcha?)
+# allow posting comments without openid auth, leaving contact email
 # added a subtitle line for short blog description just under the main blog title
 # transliteration of RUSSIAN post titles to ASCII slugs
 # Better 404 page from Google (only in production environment)
-# TODO: transliteration of JAPANESE post titles to ASCII slugs :)
+# Google Analytics
+# Spam protection using honeypot form fields
+# TODO: transliteration of JAPANESE post titles to ASCII slugs ^__^
 
 h2. License
 
