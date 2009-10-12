@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @tag = params[:tag]
+    # hack to allow tags with (one, for now) dot
     if params[:format] && !%w'html atom'.include?(params[:format])
       @tag = "#@tag.#{params[:format]}"
       params[:format] = 'html'
