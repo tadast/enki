@@ -3,6 +3,10 @@ class PostsController < ApplicationController
 
   def index
     @tag = params[:tag]
+    if params[:format] && !%w'html atom'.include?(params[:format])
+      @tag = "#@tag.#{params[:format]}"
+      params[:format] = 'html'
+    end
     @posts = Post.find_recent(:tag => @tag, :include => :tags)
 
     raise(ActiveRecord::RecordNotFound) if @tag && @posts.empty?
