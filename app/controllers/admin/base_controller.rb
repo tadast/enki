@@ -3,6 +3,7 @@ class Admin::BaseController < ApplicationController
 
   before_filter :require_login
   skip_after_filter :add_google_analytics_code
+  skip_after_filter :add_yandex_metrika_code
 
   protected
 
