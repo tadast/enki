@@ -22,20 +22,12 @@
     </div>
 
     <div id="navigation">
-      <h2>Pages</h2>
+      <!--h2>Pages</h2>
       <ul>
         <% page_links_for_navigation.each do |link| -%>
           <li><%= link_to(h(link.name), link.url) %></li>
         <% end -%>
-      </ul>
-      <% unless category_links_for_navigation.empty? -%>
-        <h2>Categories</h2>
-        <ul>
-          <% category_links_for_navigation.each do |link| -%>
-            <li><%= link_to(h(link.name), link.url) %></li>
-          <% end -%>
-        </ul>
-      <% end -%>
+      </ul-->
       <form method="get" id="sform" action="http://www.google.com/search">
         <div>
           <h2><label for="q">Search</label></h2>
@@ -46,15 +38,24 @@
       </form>
 
       <h2>Donate</h2>
-      <table cellpadding="0" cellspacing="0" border="0" style="font: 0.8em Arial, sans-serif; cursor:pointer" onclick="$('#donate-form').submit()">
+      <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:1em; font: 0.8em Arial, sans-serif; cursor:pointer" onclick="$('#donate-form').submit()">
         <tr><td width="116" height="77" style="border: 0; background:url(http://img.yandex.net/i/money/top-1rub-aqua.gif) repeat-y; text-align:center; padding: 0;" align="center" valign="bottom"><form style="margin: 0; padding: 0 0 2px;" action="https://money.yandex.ru/donate.xml" id="donate-form" method="post"><input type="hidden" name="to" value="41001125445013"/><input type="hidden" name="s5" value="1rub"/><input type="submit" style="width:7em; cursor:pointer" value="дай рубль"/></form></td></tr>
-        <tr><td width="116" height="38" style="font-size:13px; color:black;padding: 0; border: 0; background:url(http://img.yandex.net/i/money/bg-aqua.gif) repeat-y; text-align:center; padding: 5px 0;" align="center" valign="top"><b>поддержать автора :)</b></td></tr>
+        <tr><td width="116" height="38" style="font-size:13px; color:black;padding: 0; border: 0; background:url(http://img.yandex.net/i/money/bg-aqua.gif) repeat-y; text-align:center; padding: 5px 0;" align="center" valign="top"><b>поддержать автора</b></td></tr>
         <tr><td style="padding: 0; border:0">
             <div style="height:30px; overflow:hidden">
               <img src="http://img.yandex.net/i/money/bottom-aqua.gif" width="116" height="40" alt="" usemap="#button" border="0" style="border:none" /><!--map name="button"><area alt="Яндекс" coords="38,2,49,21" href="http://www.yandex.ru"><area alt="Яндекс. Деньги" coords="52,1,84,28" href="https://money.yandex.ru"><area alt="Хочу такую же кнопку" coords="17,29,100,40" href="https://money.yandex.ru/choose-banner.xml"></map-->
             </div>
           </td></tr>
       </table>
+
+      <% unless category_links_for_navigation.empty? -%>
+        <h2>Categories</h2>
+        <ul>
+          <% category_links_for_navigation.each do |link| -%>
+            <li><%= link_to(h(link.name), link.url) %></li>
+          <% end -%>
+        </ul>
+      <% end -%>
 
     </div>
     <div id="footer"><%=h config[:title] %> &#169; <%=h config[:author, :name] %>. Valid <a href="http://validator.w3.org/check?uri=referer">XHTML</a> and <%= link_to "ATOM", "http://feedvalidator.org/check.cgi?url=#{h(config[:url])}/posts.atom" %>. Powered by <a href="http://www.enkiblog.com" title="A Ruby on Rails blogging app for the fashionable developer">Enki</a>.</div>
