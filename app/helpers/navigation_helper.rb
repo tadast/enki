@@ -7,9 +7,15 @@ module NavigationHelper
   end
 
   def category_links_for_navigation
+    @clfn ||= Rails.cache.read('category_links_for_navigation')
+    return @clfn unless @clfn.blank?
+
     link = Struct.new(:name, :url)
-    @popular_tags ||= Tag.find(:all).reject {|tag| tag.taggings.empty? }.sort_by {|tag| tag.taggings.size }.reverse
-    @popular_tags.collect {|tag| link.new(tag.name, posts_path(:tag => tag)) }
+    @popular_tags ||= Tag.find(:all).reject {|tag| tag.taggings.size <= 1 }.sort_by {|tag| tag.taggings.size }.reverse
+    @clfn = @popular_tags.collect {|tag| link.new(tag.name, posts_path(:tag => tag)) }
+    Rails.cache.write('category_links_for_navigation', @clfn, :expires_in => 1.hour)
+
+    @clfn
   end
 
   def class_for_tab(tab_name, index)

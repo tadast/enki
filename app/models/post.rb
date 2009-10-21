@@ -14,6 +14,9 @@ class Post < ActiveRecord::Base
 
   validate                :validate_published_at_natural
 
+  after_create            :flush_cache
+  after_update            :flush_cache
+
   def validate_published_at_natural
     errors.add("published_at_natural", "Unable to parse time") unless published?
   end
@@ -120,5 +123,11 @@ class Post < ActiveRecord::Base
   def tag_list=(value)
     value = value.join(", ") if value.respond_to?(:join)
     super(value)
+  end
+
+  private
+
+  def flush_cache
+    Rails.cache.delete('category_links_for_navigation')
   end
 end
