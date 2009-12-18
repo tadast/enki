@@ -22,12 +22,6 @@
     </div>
 
     <div id="navigation">
-      <h2>Pages</h2>
-      <ul>
-        <% page_links_for_navigation.each do |link| -%>
-          <li><%= link_to(h(link.name), link.url) %></li>
-        <% end -%>
-      </ul>
       <form method="get" id="sform" action="http://www.google.com/search">
         <div>
           <h2><label for="q">Search</label></h2>
@@ -36,6 +30,13 @@
           <input type="hidden" name="sitesearch" value="<%=h config[:url] %>" />
         </div>
       </form>
+
+      <h2>Pages</h2>
+      <ul>
+        <% page_links_for_navigation.each do |link| -%>
+          <li><%= link_to(h(link.name), link.url) %></li>
+        <% end -%>
+      </ul>
 
       <h2>Donate</h2>
       <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:1em; font: 0.8em Arial, sans-serif; cursor:pointer" onclick="$('#donate-form').submit()">
