@@ -38,6 +38,49 @@
         <% end -%>
       </ul>
 
+      <noindex>
+      <h2>StackOverflow</h2>
+      <div style="margin-bottom: 0.5em">
+        <iframe src="http://stackoverflow.com/users/flair/286595.html" marginwidth="0" marginheight="0" frameborder="0"  scrolling="no" width="210" height="60"></iframe>
+      </div>
+
+      <h2>Twitter</h2>
+      <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+      <!--style>
+        .twtr-tweet-text p { text-align: left }
+      </style-->
+        <script>
+        new TWTR.Widget({
+          version: 2,
+          type: 'profile',
+          rpp: 4,
+          interval: 6000,
+          width: 215,
+          height: 300,
+          theme: {
+            shell: {
+              background: '#ffffff',
+              color: '#000000'
+            },
+            tweets: {
+              background: '#ffffff',
+              color: '#000000',
+              links: '#0000ff'
+            }
+          },
+          features: {
+            scrollbar: false,
+            loop: false,
+            live: false,
+            hashtags: true,
+            timestamp: false,
+            avatars: false,
+            behavior: 'all'
+          }
+        }).render().setUser('zed_0xff').start();
+        </script>
+      </noindex>
+
       <h2>Donate</h2>
       <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:1em; font: 0.8em Arial, sans-serif; cursor:pointer" onclick="$('#donate-form').submit()">
         <tr><td width="116" height="77" style="border: 0; background:url(http://img.yandex.net/i/money/top-1rub-aqua.gif) repeat-y; text-align:center; padding: 0;" align="center" valign="bottom"><form style="margin: 0; padding: 0 0 2px;" action="https://money.yandex.ru/donate.xml" id="donate-form" method="post"><input type="hidden" name="to" value="41001125445013"/><input type="hidden" name="s5" value="1rub"/><input type="submit" style="width:7em; cursor:pointer" value="дай рубль"/></form></td></tr>
@@ -58,11 +101,11 @@
         </ul>
       <% end -%>
 
-      <h2>Ads</h2>
+      <!--h2>Ads</h2>
       <ul>
         <li><a href="http://2co.0xff.me">site template for 2CO</a></li>
         <li><a href="http://2co.0xff.me">2Checkout simple site template</a></li>
-      </ul>
+      </ul-->
 
     </div>
     <div id="footer"><%=h config[:title] %> &#169; <%=h config[:author, :name] %>. Powered by <noindex><a href="http://www.enkiblog.com" title="A Ruby on Rails blogging app for the fashionable developer">Enki</a></noindex>.</div>
