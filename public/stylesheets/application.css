@@ -395,4 +395,6 @@ table.t1 {
 }
 table.t1 td {
   border: solid 1px #ccc;
+  padding-left: 3px;
+  padding-right: 3px;
 }
