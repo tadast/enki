@@ -389,3 +389,10 @@ pre.ruby .keyword { color: #c41f1f; }
 pre.ruby .constant { color: #961818; }
 pre.ruby .comment { color: #f37e00; }
 pre.ruby .string { color: #b77c0a; }
+
+table.t1 {
+  border-collapse: collapse;
+}
+table.t1 td {
+  border: solid 1px #ccc;
+}
