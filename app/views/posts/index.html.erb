@@ -1,4 +1,4 @@
-<% content_for(:page_title) do %><%=h posts_title(@tag) %><% end -%>
+<% content_for(:page_title) do %><%= posts_title(@tag) %><% end -%>
 <% content_for(:head)       do %>
   <%- if config[:feed_proxy_url] -%>
     <%= auto_discovery_link_tag(:atom, config[:feed_proxy_url], :title => config[:title] ) -%>

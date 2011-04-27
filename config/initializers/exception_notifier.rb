@@ -1,3 +1,5 @@
-ExceptionNotifier.exception_recipients = [Enki::Config.default[:author, :email]]
-ExceptionNotifier.sender_address = 
-  %("Application Error" <app.error@#{URI.parse(Enki::Config.default[:url]).host}>)
+Enki::Application.config.middleware.use ExceptionNotifier,
+  :ignore_exceptions    => [ActionController::InvalidAuthenticityToken],
+  :email_prefix         => "[Enki] ",
+  :sender_address       => [Enki::Config.default[:author, :email]],
+  :exception_recipients => [Enki::Config.default[:author, :email]]

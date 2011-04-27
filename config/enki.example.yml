@@ -3,7 +3,7 @@
 title: My Enki Blog
 subtitle: A blog about me
 url:   http://enkiblog.com
-author: 
+author:
   name:    Don Alias        # For copyright notice and ATOM feeds
   email:   don@enkiblog.com # Exception emails will go here, and it is used in ATOM feeds
   open_id:                  # These are used to login to the admin area

@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   include UrlHelper
-  OPEN_ID_ERRORS = { 
-    :missing  => "Sorry, the OpenID server couldn't be found", 
+  OPEN_ID_ERRORS = {
+    :missing  => "Sorry, the OpenID server couldn't be found",
     :canceled => "OpenID verification was canceled",
     :failed   => "Sorry, the OpenID verification failed" }
 
@@ -37,12 +37,9 @@ class CommentsController < ApplicationController
 
     session[:pending_comment] = nil
 
-    unless @comment.requires_openid_authentication?
-      @comment.blank_openid_fields
-      @comment.author_email = (session[:pending_comment] || params[:comment])[:author_email]
-    else
+    if @comment.requires_openid_authentication?
       session[:pending_comment] = params[:comment]
-      return if authenticate_with_open_id(@comment.author, :optional => [:nickname, :fullname, :email]) do |result, identity_url, registration|
+      authenticate_with_open_id(@comment.author, :optional => [:nickname, :fullname, :email]) do |result, identity_url, registration|
         if result.status == :successful
           @comment.post = @post
 
@@ -56,13 +53,16 @@ class CommentsController < ApplicationController
           @comment.openid_error = OPEN_ID_ERRORS[ result.status ]
         end
       end
+    else
+      @comment.blank_openid_fields
     end
 
-    if session[:pending_comment].nil? && @comment.save
-      redirect_to post_path(@post)
-    else
-      prepare_hidden_styles
-      render :template => 'posts/show'
+    unless response.headers[Rack::OpenID::AUTHENTICATE_HEADER] # OpenID gem already provided a response
+      if @comment.save
+        redirect_to post_path(@post)
+      else
+        render :template => 'posts/show'
+      end
     end
   end
 
