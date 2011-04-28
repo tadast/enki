@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   helper_method :config
 
   def log_referer
-    logger.info "Referer: #{request.referer}" if request.referer
+    Rails.logger.info "Referer: #{request.referer}" if request.referer
     true
   end
 

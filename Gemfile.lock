@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/mdeering/gravatar_image_tag.git
+  revision: 2140f83241cc89fa3195c54eeee2fd0454427401
+  specs:
+    gravatar_image_tag (1.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -32,6 +38,13 @@ GEM
     activesupport (3.0.7)
     arel (2.0.9)
     aws-ses (0.4.2)
+      builder
+      builder
+      mail (~> 2.2.5)
+      mime-types
+      mime-types
+      xml-simple
+      xml-simple
     builder (2.1.2)
     coderay (0.9.7)
     cucumber (0.10.0)
@@ -62,6 +75,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mysql2 (0.2.6)
     nokogiri (1.4.4)
     polyglot (0.3.1)
     racc (1.4.6)
@@ -101,7 +115,6 @@ GEM
       railties (~> 3.0)
       rspec (~> 2.5.0)
     ruby-openid (2.1.8)
-    mysql2 (0.2.6)
     term-ansicolor (1.0.5)
     thor (0.14.6)
     treetop (1.4.9)
@@ -112,6 +125,7 @@ GEM
       rack (>= 1.0)
       rack-test (>= 0.5.3)
     will_paginate (3.0.pre2)
+    xml-simple (1.0.15)
 
 PLATFORMS
   ruby
@@ -124,14 +138,15 @@ DEPENDENCIES
   cucumber-rails
   factory_girl
   formtastic
+  gravatar_image_tag!
   hpricot
   lesstile
+  mysql2 (= 0.2.6)
   racc
   rack-openid
   rails (= 3.0.7)
   rspec
   rspec-rails
   ruby-openid
-  mysql2 (= 0.2.6)
   webrat
   will_paginate (= 3.0.pre2)

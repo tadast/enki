@@ -8,6 +8,7 @@ gem 'rails', '3.0.7'
 gem 'mysql2', '= 0.2.6'
 gem 'racc'
 gem 'aws-ses', :require => 'aws/ses'
+gem 'gravatar_image_tag', :git => 'git://github.com/mdeering/gravatar_image_tag.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'
