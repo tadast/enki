@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   before_filter :find_post, :except => [:new]
   before_filter :check_honeypots, :only => %w'create index'
   before_filter :cleanup_honey
+  before_filter :prepare_hidden_styles, :only => %w'create index'
 
   def index
     if request.post? || using_open_id?
@@ -74,7 +75,7 @@ class CommentsController < ApplicationController
 
   def check_honeypots
     logger.info "check honeypots: #{params.inspect}"
-  
+
     fields = [
       [:comment, :author_website],
       [:comment, :website],
