@@ -2,8 +2,13 @@ log/**/*
 log
 tmp/**/*
 tmp
-config/database.yml
 db/schema.rb
 .bundle
 *.log
 *.orig
+locks
+public/system
+REVISION
+config/database.yml
+config/deploy.rb
+config/enki.yml

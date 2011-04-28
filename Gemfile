@@ -7,6 +7,7 @@ gem 'rails', '3.0.7'
 
 gem 'mysql2', '= 0.2.6'
 gem 'racc'
+gem 'aws-ses', :require => 'aws/ses'
 
 # Use unicorn as the web server
 # gem 'unicorn'
