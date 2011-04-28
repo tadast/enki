@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
 #  protect_from_forgery :secret => 'a6a9e417376364b61645d469f04ac8cf'
 
+  rescue_from ActiveRecord::RecordNotFound do |ex|
+    render 'posts/_error_404', :status => 404
+  end
+
   protected
 
   def set_content_type
@@ -19,14 +23,6 @@ class ApplicationController < ActionController::Base
 
   def enki_config
     @@enki_config = Enki::Config.default
-  end
-
-  def rescue_action_in_public(exception)
-    if exception.is_a?ActiveRecord::RecordNotFound
-      render :partial => 'posts/error_404', :layout => 'application', :status => 404
-    else
-      super
-    end
   end
 
   helper_method :enki_config

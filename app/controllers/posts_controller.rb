@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @posts = Post.find_recent(:tag => @tag, :include => :tags)
 
     respond_to do |format|
-      format.html
+      format.html { render '_error_404', :status => 404 if !@tag.blank? && @posts.empty? }
       format.atom { render :layout => false }
     end
   end
