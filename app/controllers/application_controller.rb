@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
     headers['Content-Type'] ||= 'application/xhtml+xml; charset=utf-8'
   end
 
-  def config
-    @@config = Enki::Config.default
+  def enki_config
+    @@enki_config = Enki::Config.default
   end
 
   def rescue_action_in_public(exception)
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :config
+  helper_method :enki_config
 
   def log_referer
     Rails.logger.info "Referer: #{request.referer}" if request.referer

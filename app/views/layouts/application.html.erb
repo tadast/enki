@@ -25,7 +25,7 @@
           <h2><label for="q">Search</label></h2>
 
           <input type="text" id="q" value="" name="q" />
-          <input type="hidden" name="sitesearch" value="<%=h config[:url] %>" />
+          <input type="hidden" name="sitesearch" value="<%=h enki_config[:url] %>" />
         </div>
       </form>
 
@@ -106,7 +106,7 @@
       </ul-->
 
           </div>
-    <div id="footer"><%=h config[:title] %> &#169; <%=h config[:author, :name] %>. Powered by <noindex><a href="http://www.enkiblog.com" title="A Ruby on Rails blogging app for the fashionable developer">Enki</a></noindex>.</div>
+    <div id="footer"><%=h enki_config[:title] %> &#169; <%=h enki_config[:author, :name] %>. Powered by <noindex><a href="http://www.enkiblog.com" title="A Ruby on Rails blogging app for the fashionable developer">Enki</a></noindex>.</div>
       </div>
 </body>
 </html>
