@@ -18,3 +18,11 @@ open_id_delegation:
 
 # Uncomment this if you use feedburner or any other feed proxy
 #feed_proxy_url: http://feeds.feedburner.com/my_blog_name
+
+# Add your id if you want badge on the sidebar
+stackoverflow:
+  id: 325564
+
+# Add your twitter handle if you want your tweets to be displayed on the sidebar
+twitter:
+  id: medwezys

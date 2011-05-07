@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  protect_from_forgery
   helper :all # include all helpers, all the time
 
   after_filter :set_content_type
@@ -38,9 +39,6 @@ class ApplicationController < ActionController::Base
 
     # hidden styles
     @hs = @ns.shift(@ns.size/2)
-
-    def @ns.random; self[ Kernel.rand(size) ]; end
-    def @hs.random; self[ Kernel.rand(size) ]; end
 
     @styles = []
     @ns.each{ |s| @styles << ".#{s} {}" }

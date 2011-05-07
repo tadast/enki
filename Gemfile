@@ -5,11 +5,10 @@ gem 'rails', '3.0.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '= 0.2.6'
+gem 'pg', '~> 0.11.0'
 gem 'racc'
-gem 'aws-ses', :require => 'aws/ses'
+
 gem 'gravatar_image_tag', :git => 'git://github.com/mdeering/gravatar_image_tag.git'
-gem 'russian', :require => 'russian/transliteration'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -35,9 +34,12 @@ gem 'will_paginate', '= 3.0.pre2'
 # and rake tasks are available in development mode:
 group :development, :test do
   gem 'cucumber-rails'
-  gem 'webrat'
+  gem 'capybara'
   gem 'factory_girl'
-  gem 'rspec'
-  gem 'rspec-rails'
+  gem 'rspec', '>= 2.6.0.rc6'
+  gem 'rspec-rails', '>= 2.6.0.rc6'
   gem 'hpricot'
+  gem 'ruby-debug19'
+  gem 'database_cleaner'
+  gem 'launchy'
 end

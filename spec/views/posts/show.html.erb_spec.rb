@@ -15,14 +15,16 @@ describe "/posts/show.html.erb" do
       :author                  => "Don Alias",
       :author_url              => "http://enkiblog.com",
       :author_openid_authority => "http://enkiblog.com/server",
-      :body_html               => "A comment"
+      :body_html               => "A comment",
+      :author_email            => "don@email.com"
     )
 
     mock_comment2 = mock_model(Comment,
       :created_at              => 1.month.ago,
       :author                  => "Don Alias",
       :author_url              => '',
-      :body_html               => "A comment"
+      :body_html               => "A comment",
+      :author_email            => "don@email.com"
     )
 
     @post = mock_model(Post,
@@ -42,6 +44,8 @@ describe "/posts/show.html.erb" do
   end
 
   it "should render a post" do
+    @ns = ["rand1"]
+    @hs = ["rand2"]
     render :template => "/posts/show.html.erb"
   end
 end

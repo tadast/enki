@@ -73,12 +73,6 @@ describe Post, '#generate_slug' do
     post.generate_slug
     post.title.should == 'My Post'
   end
-
-  it 'transliterates russian characters' do
-    post = Post.new(:slug => '', :title=>'превед медвед')
-    post.generate_slug
-    post.slug.should == 'preved-medved'
-  end
 end
 
 describe Post, '#tag_list=' do
